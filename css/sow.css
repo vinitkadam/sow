@@ -1,0 +1,62 @@
+
+
+a{
+    text-decoration: none;
+}
+
+.arrow {
+  text-align: center;
+  margin: 12% 0;
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.zoom {
+
+    
+    transition: transform .2s;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.1); 
+}
+
+
+
+$time: 500ms;
+$delay: $time/2;
+$mode: cubic-bezier(.17, .67, .55, 1.43);
+@keyframes heartbeat {
+  0% {
+    transform: scale(0)
+  }
+  25% {
+    transform: scale(1.2)
+  }
+  50% {
+    transform: scale(1)
+  }
+  75% {
+    transform: scale(1.2)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
