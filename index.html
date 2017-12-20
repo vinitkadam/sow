@@ -9,7 +9,24 @@
 <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    type: "POST",
+    url: "./loginregister/logincheck.php",
+    success: function(data){
+      data = JSON.parse(data);
+          if(data['login_status']) {
+            document.getElementById('logout').style.display = "block";
+            document.getElementById('login').style.display = "none";
 
+          } else {
+            document.getElementById('logout').style.display = "none";
+            document.getElementById('login').style.display = "block";
+          }
+    }
+  });
+</script>
 
 <style>
     body,h1 {font-family: 'Acme', sans-serif;}
@@ -27,7 +44,7 @@
 <div class="w3-center bgimg" >
    
   <br>
-  <img class=" " src="images/logo1.png" style="width:30%;">
+  <img src="images/logo1.png" style="width:30%;">
   <br><br><div class="w3-container w3-hide-small w3-padding-16"></div>
   
     <div class="w3-bar">
@@ -47,7 +64,10 @@
           </div>
       <a href="images/#" class="w3-bar-item w3-button w3-border w3-border-white w3-hover-deep-purple w3-deep-purple w3-white w3-round-xxlarge">About US</a>
       <a href="images/#" class="w3-bar-item w3-button w3-hide-small w3-white w3-border w3-deep-purple w3-border-white w3-hover-deep-purple w3-margin-left w3-round-xxlarge">Donate </a>
-      <a href="images/#" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge">Contact</a>
+      <a href="contactus/" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge">Contact</a>
+      <a id="login" href="loginregister/" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge">Login/Register</a>
+      <a id="logout" href="loginregister/logout.php" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge" style="display: block;">Logout</a>
+      
     </div>
     <div class="w3-container w3-text-white w3-padding-24"><span class="w3-xxlarge">#Udaan Comming Soon</span><br>
     <button class="w3-button w3-border  w3-border-white w3-text-white w3-green w3-hover-white w3-margin-right  w3-round-xxlarge">Click Here For More Info</button>

@@ -9,7 +9,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-deep-purple.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $.ajax({
+    type: "POST",
+    url: "./loginregister/logincheck.php",
+    success: function(data){
+      data = JSON.parse(data);
+          if(data['login_status']) {
+            document.getElementById('logout').style.display = "block";
+            document.getElementById('login').style.display = "none";
 
+          } else {
+            document.getElementById('logout').style.display = "none";
+            document.getElementById('login').style.display = "block";
+          }
+    }
+  });
+</script>
 
 <style>
     h1,body {font-family: 'Acme', sans-serif;}
@@ -47,8 +63,10 @@
             </div>
           </div>
       <a href="images/#" class="w3-bar-item w3-button w3-hide-small w3-text-white w3-border w3-border-white w3-hover-deep-purple w3-round-xxlarge">About US</a>
-      <a href="images/#" class="w3-bar-item w3-button w3-hide-small w3-text-white w3-border w3-hide-medium w3-border-white w3-hover-deep-purple w3-margin-left w3-round-xxlarge">Contact</a>
+      <a href="contactus/" class="w3-bar-item w3-button w3-hide-small w3-text-white w3-border w3-hide-medium w3-border-white w3-hover-deep-purple w3-margin-left w3-round-xxlarge">Contact</a>
       <a href="images/#" class="w3-bar-item w3-button w3-hide-small w3-text-white w3-border w3-border-white w3-hover-deep-purple w3-margin-left w3-round-xxlarge">Donate </a>
+      <a id="login" href="loginregister/" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge">Login/Register</a>
+      <a id="logout" href="loginregister/logout.php" class="w3-bar-item w3-button w3-hide-small w3-border w3-border-white w3-deep-purple w3-hover-deep-purple w3-white w3-margin-left w3-round-xxlarge" style="display: block;">Logout</a>
     </div>
     
     <div id="navD" class="w3-bar-block w3-theme-l5 w3-border  w3-border-deep-purple w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:60px">
